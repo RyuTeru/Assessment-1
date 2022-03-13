@@ -17,10 +17,33 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Create 'Input' object
             Input input = new Input();
             //Get either manually entered text, or text from a file
-            string choice;
-            
-            Console.WriteLine("Hello");
-           
+            bool choice_made;
+            choice_made = false;
+
+            while (choice_made == false)
+            {
+
+                Console.WriteLine("Please choose a method of text input.  For Manual text enter [ M ]   or   For File text enter [ F ] >>>: ");
+                string choice = Console.ReadLine();
+
+                if (choice == "M" | choice == "m")
+                {
+                    //input.manualTextInput();
+                    choice_made = true;
+                }
+
+                else if (choice == "F" | choice == "f")
+                {
+                    //input.fileTextInput("Text File.txt");
+                    choice_made = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input made...");
+                    choice_made = false;
+                }
+            }
+
 
             //Create an 'Analyse' object
             //Pass the text input to the 'analyseText' method
@@ -34,7 +57,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             //TO ADD: Get the frequency of individual letters?
 
-           
+
         }
         
         
