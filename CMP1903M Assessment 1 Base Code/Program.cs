@@ -35,7 +35,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                 else if (choice == "F" | choice == "f")
                 {
-                    string CurrentDir = Path.Combine(Directory.GetCurrentDirectory());
+                    string CurrentDir = Environment.CurrentDirectory;
                     Console.WriteLine(CurrentDir);
                     Console.ReadLine();
                     string location = (@$"{CurrentDir}\Text File.txt");
