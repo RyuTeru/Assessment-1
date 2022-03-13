@@ -10,7 +10,7 @@ namespace CMP1903M_Assessment_1_Base_Code
     public class Input
     {
         //Handles the text input for Assessment 1
-         string text = "nothing";
+         public string text = "nothing";
         
         //Method: manualTextInput
         //Arguments: none
@@ -30,8 +30,6 @@ namespace CMP1903M_Assessment_1_Base_Code
         public string fileTextInput(string fileName)
         {
             text = File.ReadAllText(fileName);
-            Console.WriteLine(fileName);
-            Console.ReadLine();
             return text;
         }
 
