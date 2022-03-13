@@ -15,7 +15,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             List<int> parameters = new List<int>();
 
             //Create 'Input' object
-            Input input = new Input();
+            Input input = new();
             //Get either manually entered text, or text from a file
             bool choice_made;
             choice_made = false;
@@ -28,13 +28,18 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                 if (choice == "M" | choice == "m")
                 {
-                    //input.manualTextInput();
+                    input.manualTextInput();
+                    
                     choice_made = true;
                 }
 
                 else if (choice == "F" | choice == "f")
                 {
-                    //input.fileTextInput("Text File.txt");
+                    string CurrentDir = Path.Combine(Directory.GetCurrentDirectory());
+                    Console.WriteLine(CurrentDir);
+                    Console.ReadLine();
+                    string location = (@$"{CurrentDir}\Text File.txt");
+                    input.fileTextInput(location);
                     choice_made = true;
                 }
                 else
