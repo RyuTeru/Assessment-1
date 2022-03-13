@@ -15,7 +15,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             List<int> parameters = new List<int>();
 
             //Create 'Input' object
-            Input input = new();
+            Input textobj = new();
             //Get either manually entered text, or text from a file
             bool choice_made;
             choice_made = false;
@@ -28,7 +28,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                 if (choice == "M" | choice == "m")
                 {
-                    input.manualTextInput();
+                    textobj.manualTextInput();
                     
                     choice_made = true;
                 }
@@ -36,10 +36,8 @@ namespace CMP1903M_Assessment_1_Base_Code
                 else if (choice == "F" | choice == "f")
                 {
                     string CurrentDir = Environment.CurrentDirectory;
-                    Console.WriteLine(CurrentDir);
-                    Console.ReadLine();
                     string location = (@$"{CurrentDir}\Text File.txt");
-                    input.fileTextInput(location);
+                    textobj.fileTextInput(location);
                     choice_made = true;
                 }
                 else
@@ -51,8 +49,9 @@ namespace CMP1903M_Assessment_1_Base_Code
 
 
             //Create an 'Analyse' object
+            Analyse sentence = new();
             //Pass the text input to the 'analyseText' method
-
+            sentence.analyseText(textobj.text);
 
             //Receive a list of integers back
 
