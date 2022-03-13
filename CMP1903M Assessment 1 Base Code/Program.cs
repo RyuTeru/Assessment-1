@@ -16,24 +16,11 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             //Create 'Input' object
             Input input = new Input();
-            string choice;
             //Get either manually entered text, or text from a file
-
-            Console.WriteLine("Please choose a method of text input.  For Manual text enter [ M ]   or   For File text enter [ F ] >>>: ");
-
-            choice = Console.ReadLine();
+            string choice;
             
-            if (choice == "M" | choice == "m")
-                {
-                  input.manualTextInput();
-                }
-
-            else if (choice == "F" | choice == "f")
-                {
-                  input.fileTextInput("Text File.txt");
-                }
-
-
+            Console.WriteLine("Hello");
+           
 
             //Create an 'Analyse' object
             //Pass the text input to the 'analyseText' method
