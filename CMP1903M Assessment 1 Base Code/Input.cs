@@ -18,7 +18,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from the keyboard
         public string manualTextInput()
         {
-            Console.WriteLine("Enter the sentence you wish to be analysed... >>>: ");
+            Console.WriteLine("Enter the sentence(s) you wish to analyse... >>>: ");
             text = Console.ReadLine();
             return text;
         }

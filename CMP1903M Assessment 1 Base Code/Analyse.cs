@@ -28,7 +28,17 @@ namespace CMP1903M_Assessment_1_Base_Code
             {
                 values.Add(0);
             }
+            // Finding the number of sentences
+            string[] sentences = input.Split(". ");
+            values[0] = sentences.Length;
+            
+            // Creation of Vowel array
 
+            // Creation of Consonants array
+
+            //Finding all Upper case letters
+
+            // Finding all Lower case letters
 
             return values;
         }
