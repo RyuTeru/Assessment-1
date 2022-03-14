@@ -59,7 +59,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             parameters = sentence.analyseText(textobj.text);
 
             //Report the results of the analysis
-            Console.WriteLine("Below is the analysis of the given text...\n");
+            Console.WriteLine("\nBelow is the analysis of the given text...\n");
             Console.WriteLine($"Sentences  : {parameters[0]}");
             Console.WriteLine($"Vowels     : {parameters[1]}");
             Console.WriteLine($"Consonants : {parameters[2]}");
