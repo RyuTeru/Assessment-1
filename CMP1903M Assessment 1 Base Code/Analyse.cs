@@ -6,41 +6,59 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_Assessment_1_Base_Code
 {
-    public class Analyse
+public class Analyse
     {
+        private const string vowelArray = "aiueoAIUEO";
+        private const string consonantArray = "qwrtzpsdfghjklyxcvbnmQWRTZPSDFGHJKLYXCVBNM";
         //Handles the analysis of text
+        private int numberOfSentences;
+        private int numberOfVowels;
+        private int numberOfConsonants;
+        private int numberOfUpperCase;
+        private int numberOfLowerCase;
 
+        public Analyse()
+        {
+            numberOfConsonants = 0;
+            numberOfLowerCase = 0;
+            numberOfSentences = 0;
+            numberOfUpperCase = 0;
+            numberOfVowels = 0;
+        }       
         //Method: analyseText
         //Arguments: string
         //Returns: list of integers
         //Calculates and returns an analysis of the text
-        public List<int> analyseText(string input)
+        public void analyseText(string input)
         {
-            //List of integers to hold the first five measurements:
-            //1. Number of sentences
-            //2. Number of vowels
-            //3. Number of consonants
-            //4. Number of upper case letters
-            //5. Number of lower case letters
-            List<int> values = new List<int>();
-            //Initialise all the values in the list to '0'
-            for(int i = 0; i<5; i++)
-            {
-                values.Add(0);
+            if(input == null){
+                throw new ArgumentException("Invalid Input.");
             }
             // Finding the number of sentences
-            string[] sentences = input.Split(". ");
-            values[0] = sentences.Length;
+            string[] sentences = input.Split('.');
+            foreach (var item in sentences)
+            {
+                if (item.Trim() != "")
+                {
+                    numberOfSentences++;
+                }
+            }
             
-            // Creation of Vowel array
+            foreach (var item in input)
+            {
+                if (vowelArray.Contains(item))
+                {
+                    numberOfVowels++;
+                }
+                else if (consonantArray.Contains(item)){
+                    numberOfConsonants++;
+                }
+            }
+        }
 
-            // Creation of Consonants array
-
-            //Finding all Upper case letters
-
-            // Finding all Lower case letters
-
-            return values;
+        public override string ToString()
+        {
+            return $"Sentences: {numberOfSentences}\nVowels: {numberOfVowels}\nConsonants: {numberOfConsonants}\nUpper Case: {numberOfUpperCase}\nLower Case: {numberOfLowerCase}";
         }
     }
 }

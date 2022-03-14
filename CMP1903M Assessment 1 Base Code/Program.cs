@@ -40,7 +40,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 else if (choice == "F" | choice == "f")
                 {
                     string CurrentDir = Environment.CurrentDirectory;
-                    string location = (@$"{CurrentDir}\Text File.txt");
+                    string location = ("Text File.txt");
                     textobj.fileTextInput(location);
                     choice_made = true;
                 }
@@ -56,15 +56,10 @@ namespace CMP1903M_Assessment_1_Base_Code
             Analyse sentence = new();
             //Pass the text input to the 'analyseText' method
             //Receive a list of integers back
-            parameters = sentence.analyseText(textobj.text);
-
             //Report the results of the analysis
+            sentence.analyseText(textobj.text);
             Console.WriteLine("\nBelow is the analysis of the given text...\n");
-            Console.WriteLine($"Sentences  : {parameters[0]}");
-            Console.WriteLine($"Vowels     : {parameters[1]}");
-            Console.WriteLine($"Consonants : {parameters[2]}");
-            Console.WriteLine($"Upper Case : {parameters[3]}");
-            Console.WriteLine($"Lower Case : {parameters[4]}");
+            Console.WriteLine(sentence.ToString());
 
 
             //TO ADD: Get the frequency of individual letters?
