@@ -31,7 +31,8 @@ public class Analyse
         //Calculates and returns an analysis of the text
         public void analyseText(string input)
         {
-            if(input == null){
+            if(input == null)
+            {
                 throw new ArgumentException("Invalid Input.");
             }
             // Finding the number of sentences
@@ -50,7 +51,8 @@ public class Analyse
                 {
                     numberOfVowels++;
                 }
-                else if (consonantArray.Contains(item)){
+                else if (consonantArray.Contains(item))
+                {
                     numberOfConsonants++;
                 }
             }
