@@ -11,9 +11,6 @@ namespace CMP1903M_Assessment_1_Base_Code
     {
         static void Main()
         {
-            //Local list of integers to hold the first five measurements of the text
-            List<int> parameters = new List<int>();
-
             //Create 'Input' object
             Input textobj = new();
             //Get either manually entered text, or text from a file
