@@ -11,6 +11,9 @@ namespace CMP1903M_Assessment_1_Base_Code
     {
         static void Main()
         {
+            //Local list of integers to hold the first five measurements of the text
+            List<int> parameters = new List<int>();
+
             //Create 'Input' object
             Input textobj = new();
             //Get either manually entered text, or text from a file
@@ -48,16 +51,14 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
             }
 
-
             //Create an 'Analyse' object
             Analyse sentence = new();
             //Pass the text input to the 'analyseText' method
             //Receive a list of integers back
+            parameters = sentence.analyseText(textobj.text);
             //Report the results of the analysis
-            sentence.analyseText(textobj.text);
-            Console.WriteLine("\nBelow is the analysis of the given text...\n");
-            Console.WriteLine(sentence.ToString());
-
+            Report textToReport = new();
+            Console.WriteLine(textToReport.analysisReport(parameters));
 
             //TO ADD: Get the frequency of individual letters?
 
