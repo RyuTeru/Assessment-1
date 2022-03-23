@@ -13,16 +13,13 @@ namespace CMP1903M_Assessment_1_Base_Code
         {
             //Local list of integers to hold the first five measurements of the text
             List<int> parameters = new List<int>();
-
             //Create 'Input' object
             Input textobj = new();
             //Get either manually entered text, or text from a file
             bool choice_made;
             choice_made = false;
-
             while (choice_made == false)
             {
-
                 Console.WriteLine("Please choose a method of text input.  For Manual text enter [ M ]   or   For File text enter [ F ] >>>: ");
                 string choice = Console.ReadLine();
 
@@ -36,7 +33,6 @@ namespace CMP1903M_Assessment_1_Base_Code
                     } 
                     choice_made = true;
                 }
-
                 else if (choice == "F" | choice == "f")
                 {
                     string CurrentDir = Environment.CurrentDirectory;
@@ -54,7 +50,6 @@ namespace CMP1903M_Assessment_1_Base_Code
                     choice_made = false;
                 }
             }
-
             //Create an 'Analyse' object
             Analyse sentence = new();
             //Pass the text input to the 'analyseText' method
