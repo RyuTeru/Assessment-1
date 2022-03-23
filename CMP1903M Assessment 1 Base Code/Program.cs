@@ -43,6 +43,10 @@ namespace CMP1903M_Assessment_1_Base_Code
                     string location = ("Text File.txt");
                     textobj.fileTextInput(location);
                     choice_made = true;
+                    Analyse LongWords = new();
+                    LongWords.findLongWords(textobj.text);
+                    Report fileToReport = new();
+                    fileToReport.longWordReport();
                 }
                 else
                 {

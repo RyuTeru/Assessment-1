@@ -12,6 +12,7 @@ public class Analyse
         private const string vowelArray = ("aiueoAIUEO");
         private const string consonantArray = ("qwrtzpsdfghjklyxcvbnmQWRTZPSDFGHJKLYXCVBNM");
         private const string upperArray = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        private const int longwordcap = 7;
         private int numberOfSentences;
         private int numberOfVowels;
         private int numberOfConsonants;
@@ -84,6 +85,39 @@ public class Analyse
             return Values;
         }
 
-        
+        public void findLongWords(string input)
+        {   // Creation of list of long words
+            List<string> longWords = new List<string>();
+            // Temporary string to hold words
+            string words = "";
+            foreach (char item in input.ToCharArray())
+            {  // If a real character is found then adds it to the temp string
+               if (char.IsLetterOrDigit(item))
+               {
+                   words += item.ToString();
+               }
+               // If a non-character is found then checks the length of current temp string 
+               else
+               {
+                   if (words.Length > longwordcap)
+                   {
+                       longWords.Add(words);
+                   }
+                   words = "";
+                   continue;
+               } 
+            }
+            // Creation of set to gather the unique long words
+            var longWordSet = new HashSet<string>(longWords);
+            string[] uniqueLongWords = longWordSet.ToArray();
+
+            string CurrentDir = Environment.CurrentDirectory;
+
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(CurrentDir, "long words.txt")))
+            {
+            foreach (string word in uniqueLongWords)
+                outputFile.WriteLine(word);
+            }
+        }   
     }
 }
