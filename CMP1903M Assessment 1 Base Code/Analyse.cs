@@ -84,7 +84,7 @@ public class Analyse
 
             return Values;
         }
-
+        // Method to find all words longer than 7 letters 
         public void findLongWords(string input)
         {   // Creation of list of long words
             List<string> longWords = new List<string>();
@@ -119,5 +119,27 @@ public class Analyse
                 outputFile.WriteLine(word);
             }
         }   
+        // Method to find the frequency of all letters 
+        public void letterFrequency(string input)
+        {
+            // Creation of letter frequency array
+            int[] frequencyArray = new int [(int)char.MaxValue];
+            
+            // Iterates through each letter in the input
+            foreach (char letter in input)
+            {
+                frequencyArray[(int)letter]++;
+            }
+            // Display frequency of each letter
+            for (int i = 0; i < (int)char.MaxValue; i++)
+            {
+                if (frequencyArray[i] > 0 && char.IsLetterOrDigit((char)i))
+                {
+                    Console.WriteLine($"Letter: {(char)i} appears : {frequencyArray[i]} times");
+                }
+            }
+
+        }  
+        
     }
 }

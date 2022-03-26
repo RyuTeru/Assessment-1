@@ -59,9 +59,30 @@ namespace CMP1903M_Assessment_1_Base_Code
             Report textToReport = new();
             Console.WriteLine(textToReport.analysisReport(parameters));
 
-            //TO ADD: Get the frequency of individual letters?
-
-
+            //Get the frequency of individual letters
+            Input frequency = new();
+            string freq;
+            choice_made = false;
+            while (choice_made == false)
+            {
+                freq = frequency.freqQuestion();
+                if (freq.ToUpper() == "Y")
+                {
+                    sentence.letterFrequency(textobj.text);
+                    Console.WriteLine("\n Ending program...");
+                    break;
+                }
+                else if (freq.ToUpper() == "N")
+                {
+                    Console.WriteLine("Ending program...");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input!");
+                    continue;
+                }
+            }
         }
         
         

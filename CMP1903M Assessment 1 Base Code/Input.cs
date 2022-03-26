@@ -32,6 +32,12 @@ namespace CMP1903M_Assessment_1_Base_Code
             text = File.ReadAllText(fileName);
             return text;
         }
-
-    }
+        // Method for user to choose whether they want the frequency of letters 
+        public string freqQuestion()
+        {
+            Console.WriteLine("Would you like a letter frequency list?...  [Y]   or   [N]   >>>: ");
+            text = Console.ReadLine();
+            return text;
+        }
+    }   
 }
