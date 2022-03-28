@@ -23,7 +23,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 Console.WriteLine("Please choose a method of text input.  For Manual text enter [ M ]   or   For File text enter [ F ] >>>: ");
                 string choice = Console.ReadLine();
 
-                if (choice == "M" | choice == "m")
+                if (choice == "M" || choice == "m")
                 {
                     textobj.manualTextInput();
                     if (textobj.text.Length == 0)
@@ -33,16 +33,16 @@ namespace CMP1903M_Assessment_1_Base_Code
                     } 
                     choice_made = true;
                 }
-                else if (choice == "F" | choice == "f")
+                else if (choice == "F" || choice == "f")
                 {
                     string CurrentDir = Environment.CurrentDirectory;
                     string location = ("Text File.txt");
                     textobj.fileTextInput(location);
                     choice_made = true;
-                    Analyse LongWords = new();
+                    Analyse longWords = new();
                     // (Example of Abstraction 1/2) The object below 'LongWords' can utalise it's Composition / the behavious that are available to it, such as the 'findLongWords()' method.
                     // (Example of Abstraction 2/2) The 'findLongWords()' method can be called upon the 'LongWords' by a user without needing to know the details of how 'findLongWords()' works.
-                    LongWords.findLongWords(textobj.text);
+                    longWords.findLongWords(textobj.text);
                     Report fileToReport = new();
                     fileToReport.longWordReport();
                 }

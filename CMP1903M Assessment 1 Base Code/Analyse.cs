@@ -14,10 +14,11 @@ public class Analyse
         // The Data members or 'State' for the Analyse class is set below
         // Such as 'private const string upperArray' or 'private int numberOfVowels'
         // So that only the Analyse class alone can accesses these variables
-        private const string vowelArray = ("aiueoAIUEO");
-        private const string consonantArray = ("qwrtzpsdfghjklyxcvbnmQWRTZPSDFGHJKLYXCVBNM");
-        private const string upperArray = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-        private const int longwordcap = 7;
+        private const string vowelArray = "aiueoAIUEO";
+        private const string consonantArray = "qwrtzpsdfghjklyxcvbnmQWRTZPSDFGHJKLYXCVBNM";
+        private const string upperArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private const string lowerArray = "abcdefghijklmnopqrstuvwxyz";
+        private const int longWordCap = 7;
         private int numberOfSentences;
         private int numberOfVowels;
         private int numberOfConsonants;
@@ -38,10 +39,10 @@ public class Analyse
         // These methods that can be invoked outside the class are the only things which can access the private variables
         public List<int> analyseText(string input)
         {
-            List<int> Values = new List<int>();
+            List<int> values = new List<int>();
             for(int i = 0; i<5; i++)
             {
-                Values.Add(0);
+                values.Add(0);
             }
 
             if(input == null)
@@ -53,79 +54,74 @@ public class Analyse
             string[] sentences = input.Split(delimiter);
             foreach (var item in sentences)
             {
-                if (item.Trim() != "")
+                if (item.Trim() != string.Empty)
                 {
                     numberOfSentences++;
                 }
             }
-            Values[0] = numberOfSentences;
+            values[0] = numberOfSentences;
 
             // Finding the vowels and consonants
-            foreach (var item in input)
+            foreach (var character in input)
             {
-                if (vowelArray.Contains(item))
+                if (vowelArray.Contains(character))
                 {
                     numberOfVowels++;
                 }
-                else if (consonantArray.Contains(item))
+                else if (consonantArray.Contains(character))
                 {
                     numberOfConsonants++;
                 }
             }
-            Values[1] = numberOfVowels;
-            Values[2] = numberOfConsonants;
+            values[1] = numberOfVowels;
+            values[2] = numberOfConsonants;
 
             // Finding the Upper-case and Lower-case letters;
-            string lowerArray = upperArray.ToLower();
-            foreach (var item in input)
+            foreach (var character in input)
             {
-                if (upperArray.Contains(item))
+                if (upperArray.Contains(character))
                 {
                     numberOfUpperCase++;
                 }
-                else if (lowerArray.Contains(item))
+                else if (lowerArray.Contains(character))
                 {
                     numberOfLowerCase++;
                 }
             }
-            Values[3] = numberOfUpperCase;
-            Values[4] = numberOfLowerCase;
+            values[3] = numberOfUpperCase;
+            values[4] = numberOfLowerCase;
 
-            return Values;
+            return values;
         }
         // Method to find all words longer than 7 letters 
         public void findLongWords(string input)
-        {   // Creation of list of long words
+        {   
+            // Creation of list of long words
             List<string> longWords = new List<string>();
             // Temporary string to hold words
-            string words = "";
-            foreach (char item in input.ToCharArray())
-            {  // If a real character is found then adds it to the temp string
-               if (char.IsLetterOrDigit(item))
-               {
-                   words += item.ToString();
-               }
-               // If a non-character is found then checks the length of current temp string 
-               else
-               {
-                   if (words.Length > longwordcap)
-                   {
-                       longWords.Add(words);
-                   }
-                   words = "";
+            string word = "";
+            foreach (char character in input.ToCharArray())
+            {  
+                // If a real character is found then adds it to the temp string
+                if (char.IsLetterOrDigit(character))
+                {
+                   word += character.ToString();
                    continue;
-               } 
+                }
+                // If a non-character is found then checks the length of current temp string 
+                if (word.Length > longWordCap)
+                {
+                    longWords.Add(word);
+                }
+                word = "";
             }
             // Creation of set to gather the unique long words
-            var longWordSet = new HashSet<string>(longWords);
-            string[] uniqueLongWords = longWordSet.ToArray();
-
-            string CurrentDir = Environment.CurrentDirectory;
-
-            using (StreamWriter outputFile = new StreamWriter(Path.Combine(CurrentDir, "long words.txt")))
+            var longWordSet = longWords.Distinct();
+            string currentDir = Environment.CurrentDirectory;
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(currentDir, "long words.txt")))
             {
-            foreach (string word in uniqueLongWords)
-                outputFile.WriteLine(word);
+                foreach (string words in longWordSet)
+                    outputFile.WriteLine(words);
             }
         }   
         // Method to find the frequency of all letters 
