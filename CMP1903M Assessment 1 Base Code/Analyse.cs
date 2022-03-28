@@ -49,7 +49,8 @@ public class Analyse
                 throw new ArgumentException("Invalid Input.");
             }
             // Finding the number of sentences
-            string[] sentences = input.Split('.');
+            char[] delimiter = {'.', '!', '?'};
+            string[] sentences = input.Split(delimiter);
             foreach (var item in sentences)
             {
                 if (item.Trim() != "")
