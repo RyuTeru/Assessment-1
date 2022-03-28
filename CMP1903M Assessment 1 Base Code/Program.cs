@@ -40,6 +40,8 @@ namespace CMP1903M_Assessment_1_Base_Code
                     textobj.fileTextInput(location);
                     choice_made = true;
                     Analyse LongWords = new();
+                    // (Example of Abstraction 1/2) The object below 'LongWords' can utalise it's Composition / the behavious that are available to it, such as the 'findLongWords()' method.
+                    // (Example of Abstraction 2/2) The 'findLongWords()' method can be called upon the 'LongWords' by a user without needing to know the details of how 'findLongWords()' works.
                     LongWords.findLongWords(textobj.text);
                     Report fileToReport = new();
                     fileToReport.longWordReport();

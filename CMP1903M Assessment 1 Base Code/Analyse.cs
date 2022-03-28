@@ -9,6 +9,11 @@ namespace CMP1903M_Assessment_1_Base_Code
 public class Analyse
     {
         //Handles the analysis of text
+
+        // (Example of Encapsulation) 1/2
+        // The Data members or 'State' for the Analyse class is set below
+        // Such as 'private const string upperArray' or 'private int numberOfVowels'
+        // So that only the Analyse class alone can accesses these variables
         private const string vowelArray = ("aiueoAIUEO");
         private const string consonantArray = ("qwrtzpsdfghjklyxcvbnmQWRTZPSDFGHJKLYXCVBNM");
         private const string upperArray = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
@@ -27,7 +32,10 @@ public class Analyse
             numberOfUpperCase = 0;
             numberOfVowels = 0;
         }       
-
+        // (Example of Encapsulation) 2/2
+        // The methods below are the Function members or 'Behaviours' of this class
+        // Such as 'public List<int> analyseText(string input)'
+        // These methods that can be invoked outside the class are the only things which can access the private variables
         public List<int> analyseText(string input)
         {
             List<int> Values = new List<int>();
