@@ -35,8 +35,8 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
                 else if (choice == "F" || choice == "f")
                 {
-                    string CurrentDir = Environment.CurrentDirectory;
-                    string location = ("Text File.txt");
+                    string currentDir = Environment.CurrentDirectory;
+                    string location = ($"{currentDir}\\Text File.txt");
                     textobj.fileTextInput(location);
                     choice_made = true;
                     LongWordFile longWords = new();
