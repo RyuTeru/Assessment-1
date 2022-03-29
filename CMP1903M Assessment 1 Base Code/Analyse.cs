@@ -18,7 +18,6 @@ public class Analyse
         private const string consonantArray = "qwrtzpsdfghjklyxcvbnmQWRTZPSDFGHJKLYXCVBNM";
         private const string upperArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private const string lowerArray = "abcdefghijklmnopqrstuvwxyz";
-        private const int longWordCap = 7;
         private int numberOfSentences;
         private int numberOfVowels;
         private int numberOfConsonants;
