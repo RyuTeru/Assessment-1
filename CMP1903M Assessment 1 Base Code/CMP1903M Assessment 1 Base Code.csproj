@@ -6,6 +6,7 @@
     <RootNamespace>CMP1903M_Assessment_1_Base_Code</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <BaseOutputPath>bin</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace CMP1903M_Assessment_1_Base_Code
 {
     public class Input
     {
         //Handles the text input for Assessment 1
-        string text = "nothing";
+         public string text = "nothing";
         
         //Method: manualTextInput
         //Arguments: none
@@ -17,7 +18,8 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from the keyboard
         public string manualTextInput()
         {
-
+            Console.WriteLine("Enter the sentence(s) you wish to analyse... >>>: ");
+            text = Console.ReadLine();
             return text;
         }
 
@@ -27,9 +29,15 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from a .txt file
         public string fileTextInput(string fileName)
         {
-
+            text = File.ReadAllText(fileName);
             return text;
         }
-
-    }
+        // Method for user to choose whether they want the frequency of letters 
+        public string freqQuestion()
+        {
+            Console.WriteLine("Would you like a letter frequency list?...  [Y]   or   [N]   >>>: ");
+            text = Console.ReadLine();
+            return text;
+        }
+    }   
 }
